@@ -1,5 +1,5 @@
 ---
-title: "RA"
+title: "Regression Analysis"
 listing:
   contents: posts
   sort: 
@@ -13,4 +13,6 @@ page-layout: full
 title-block-banner: true
 ---
 
+- Professor Youngmi Lee, Department of Statistics, Jeonbuk National University
 
+- 2nd semester, 2022
