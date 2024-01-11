@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="김보람">
+<meta name="dcterms.date" content="2024-01-11">
 
-<title>RA - Regression Analysis</title>
+<title>RA - Ch3. Simple Linear Regression 개념</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -128,17 +99,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">RA</span>
     </a>
   </div>
@@ -149,7 +120,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Boram-coco</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,127 +143,303 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Regression Analysis</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">Ch3. Simple Linear Regression 개념</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>김보람 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 11, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="회귀-분석-기본-가정" class="level1">
+<h1>회귀 분석 기본 가정</h1>
+<dl>
+<dt><code>-</code> Linearity(선형성)</dt>
+<dd>
+<p><span class="math inline">\(E(Y|X=x) = \mu_{yx} = \beta_0 + \beta_1 x\)</span></p>
+</dd>
+</dl>
 <ul>
-<li><p>Professor Youngmi Lee, Department of Statistics, Jeonbuk National University</p></li>
-<li><p>2nd semester, 2022</p></li>
+<li><span class="math inline">\(X\)</span>가 주어졌을 때 <span class="math inline">\(Y\)</span>의 기대값은 일차함수 관계일 것이다.</li>
 </ul>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
+<dl>
+<dt><code>-</code> Homoscedastic(등분산성)</dt>
+<dd>
+<p><span class="math inline">\(Var(Y|X=x) = \sigma^2\)</span></p>
+</dd>
+</dl>
+<ul>
+<li>분산은 <span class="math inline">\(x\)</span>값과 상관이 없다.</li>
+</ul>
+<dl>
+<dt><code>-</code> Normality(정규성)</dt>
+<dd>
+<p><span class="math inline">\(Y|X = x \sim N(E(Y|X = x), \sigma^2)\)</span></p>
+</dd>
+<dt><code>-</code> Independency(독립성)</dt>
+<dd>
+<p><span class="math inline">\(\epsilon\)</span>’s are mutually independent</p>
+</dd>
+</dl>
+</section>
+<section id="단순선형회귀-모형" class="level1">
+<h1>단순선형회귀 모형</h1>
+<p><code>-</code> model</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1x_i + \epsilon_i, i=1,2,\dots,n\]</span></p>
+<p><span class="math display">\[\epsilon_i \sim N(0,\sigma^2):i.i.d\]</span></p>
+<p><code>-</code> 회귀계수(regression coefficient) (or 모수, parameter)</p>
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span>: 상수항 또는 절편</p></li>
+<li><p><span class="math inline">\(\beta_1\)</span>: 기울기</p></li>
+</ul>
+<p><code>-</code> 회귀직선, 회귀선: <span class="math inline">\(\hat y = \hat \beta_0 + \hat \beta_1 x\)</span></p>
+<ul>
+<li>y의 추정값, yhat, x의 기대값에 대한 추정량</li>
+</ul>
+</section>
+<section id="회귀-모형-적합" class="level1">
+<h1>회귀 모형 적합</h1>
+<p><code>1</code> 산점도 그리기</p>
+<p><code>2</code> 모형 적합</p>
+<p><span class="math display">\[y=\beta_0 + \beta_1 x + \epsilon, \epsilon_i \sim (0, \sigma^2),i.i.d\]</span></p>
+<p><code>(1)</code> 추정: <span class="math inline">\(\hat \beta_0, \hat \beta_1, \hat \sigma^2\)</span></p>
+<ul>
+<li>추정 방법: LSE, MSE…</li>
+</ul>
+<p><code>(2)</code> 추론(가설검정)</p>
+<ul>
+<li><p>회귀 모형의 유의성 검정(F검정) : <span class="math inline">\(H_0 : \beta_1=0\)</span></p></li>
+<li><p>회귀 계수의 유의성 검정(t검정) : <span class="math inline">\(H_0 : \beta_0 = \beta_0^* (=0), \text{vs}   H_1 : \beta_1 = \beta^*_1 (=0)\)</span></p></li>
+</ul>
+<p><code>(3)</code> 적합도 측정: <span class="math inline">\(R^2\)</span></p>
+<p><code>(4)</code> 회귀진단: 오차항의 가정 확인 등</p>
+</section>
+<section id="least-square-estimation-lse" class="level1">
+<h1>Least Square Estimation (LSE)</h1>
+<p><code>-</code> 오차제곱합</p>
+<p><span class="math display">\[S= \sum_{i=1}^n \epsilon_i^2 = \sum_{i=1}^n \{y_i - (\beta_0 + \beta_1 x_i) \}^2\]</span></p>
+<p><code>-</code> 최소제곱추정량</p>
+<p><span class="math display">\[(\hat \beta_0 , \hat \beta_1) = \text{argmin}_{\beta_0,\beta_1 \in \mathbb{R}} \sum_{i=1}^n \{y_i - (\beta_0 + \beta_1 x_i) \}^2\]</span></p>
+<p><code>-</code> Least square fit(회귀 직선)</p>
+<p><span class="math display">\[\hat y ( = E(\widehat{Y|X} = x)) = \hat \beta_0 + \hat \beta_1 X\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/b73e82f9-1b97-4493-98c8-05ccc28959fb-1-1ea77089-b4a7-450b-913e-d6cb56a0573d.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p><code>-</code> 정규방정식 (normal equation)</p>
+<p><span class="math display">\[\dfrac{\delta S}{\delta \beta_0}= -2 \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)\]</span></p>
+<p><span class="math display">\[\dfrac{\delta S}{\delta \beta_1}= -2 \sum_{i=1}^n x_i (y_i - \beta_0 - \beta_1 x_i)\]</span></p>
+<p>위 식이 0이 되는 해 값 찾기</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/e8b23ddc-2d39-478a-a469-1f3f5d60240d-1-dd99e808-75e8-43dc-a25f-052fb37cf516.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/8bcdfa54-958d-4b4d-b93b-dc23db060238-1-ffd14171-e6ed-4cd7-9f72-ed6733787ec5.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/f4e7178f-6b19-47b2-a350-b99d6e4f171c-1-de2271ef-e198-47fd-bde7-52876d593298.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/fed3e1bd-7c98-44c2-bc0b-3d6547003ead-1-357be44d-0111-4389-944d-bfe44b891840.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<section id="최소제곱추정량lse" class="level2">
+<h2 class="anchored" data-anchor-id="최소제곱추정량lse">최소제곱추정량(LSE)</h2>
+<p><span class="math display">\[\hat \beta_1 = \dfrac{\sum_{i=1}^n(x_i - \bar x)(y_i - \bar y)}{\sum_{i=1}^n(x_i - \bar x)^2} = \dfrac{S_{(xy)}}{S_{(xx)}}\]</span></p>
+<p><span class="math display">\[\hat \beta_0 = \bar y - \hat \beta_1 \bar x\]</span></p>
+</section>
+</section>
+<section id="properties-of-fitted-regression-line" class="level1">
+<h1>Properties of fitted regression line</h1>
+<p><code>-</code> 잔차(residual) : <span class="math inline">\(e_i = y_i - \hat y_i\)</span></p>
+<p><code>1</code> 잔차의 합은 0이다. <span class="math inline">\((\sum_{i=1}^n e_i = 0)\)</span></p>
+<p><code>2</code> <span class="math inline">\(\sum_{i=1}^n e_i^2\)</span> 은 최소값을 갖는다.</p>
+<p><code>3</code> 잔차의 <span class="math inline">\(x_i\)</span>에 의한 가중합은 0이다. <span class="math inline">\((\sum_{i=1}^n x_i e_i = 0)\)</span></p>
+<ul>
+<li>실제값과 추정된 회귀직선의 차이: 잔차</li>
+</ul>
+<p><code>4</code> 잔차의 <span class="math inline">\(\hat y_i\)</span>에 의한 가중합은 0이다. <span class="math inline">\((\sum_{i=1}^n \hat y_i e_i =0)\)</span></p>
+<p><span class="math inline">\(=\sum(\hat \beta_0 + \hat \beta_1 x_i) e_i = \sum \hat \beta_0 e_i + \sum \hat \beta_1 x_i e_i = \hat \beta_0 \sum e_i + \hat \beta_1 \sum x_i e_i=0\)</span>(위의 1과 3에 의해)</p>
+<p><code>5</code> <span class="math inline">\((\bar x, \bar y)\)</span>는 적합된 회귀직선 위에 있다.</p>
+<p><code>-</code> 차차차</p>
+<p>편차: <span class="math inline">\(x_i - \bar x\)</span></p>
+<p>오차: <span class="math inline">\(\mu - \hat \mu\)</span> 실제값과 추정값의차(모수에서)</p>
+<p>잔차: <span class="math inline">\(y_i = \hat y_i\)</span> 오차항의 추정량</p>
+</section>
+<section id="estimation-of-error-varianece" class="level1">
+<h1>Estimation of error varianece</h1>
+<p><code>-</code> 오차분선(<span class="math inline">\(\sigma^2\)</span>)의 추정</p>
+<ul>
+<li>잔차(오차) 제곱합</li>
+</ul>
+<p><span class="math display">\[SSE = \sum_{i=1}^n(y_i - \hat y_i)^2 = \sum_{i=1}^n e_i^2\]</span></p>
+<ul>
+<li>평균제곱오차: <span class="math inline">\(MSE = \dfrac{SSE}{n-2}\)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/8ea2ad9f-91cd-4aad-bccc-cc6bd2396682-1-709d74fe-7d4c-4031-8b1d-b75e7ad33923.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<ul>
+<li>오차분산의 추정값: <span class="math inline">\(\hat \sigma^2 = MSE\)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/8f396acf-91cb-4a3b-b881-e4e02dfda57c-1-7953b173-89d6-4033-bb54-1190e9fa7c64.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="decomposition-of-deviations" class="level1">
+<h1>Decomposition of deviations</h1>
+<p><code>-</code> 총편차의 분해</p>
+<ul>
+<li><p><span class="math inline">\(y_i - \bar y = (y_i - \hat y_i) + (\hat y_i - \bar y), \forall i\)</span></p></li>
+<li><p>총편차(total deviation) = <span class="math inline">\(y_i - \bar y\)</span></p></li>
+<li><p>추측값의 편차 <span class="math inline">\(\rightarrow\)</span> 총편차 = <span class="math inline">\(\sum\)</span> 잔차<span class="math inline">\(^2\)</span> + <span class="math inline">\(\sum\)</span>추측값의 편차<span class="math inline">\(^2\)</span> : 부호 중요x, 절대값!!</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/1de2c29e-4ad7-44b4-b755-f44a61b18c2a-1-8ff82585-d567-4f0a-bc1c-06954409a453.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/a55d703d-fb39-49c8-9ae7-1fbadc0af3ba-1-a0054954-4441-4772-ae6f-53f1d4e5f6fe.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<ul>
+<li>모형적합이 잘 됬다는 뜻은? 잔차는 작게, 회귀모형에 의해 설명되는 부분은 크게!</li>
+</ul>
+<section id="제곱합의-분해-sstssessr" class="level2">
+<h2 class="anchored" data-anchor-id="제곱합의-분해-sstssessr">제곱합의 분해: SST=SSE+SSR</h2>
+<p><span class="math display">\[\sum_{i=1}^n (y_i - \bar y)^2 = \sum_{i=1}^n (y_i - \hat y_i)^2 + \sum_{i=1}^n(\hat y_i - \bar y)^2\]</span></p>
+<table class="table">
 <thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
+<tr class="header">
+<th>제곱합의 종류</th>
+<th>정의 및 기호</th>
+<th>비고</th>
 </tr>
 </thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1704898800000" data-listing-file-modified-sort="1704961783562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="582" data-listing-title-sort="Ch3. Simple Linear Regression 개념" data-listing-filename-sort="Regression_3.ipynb">
-<td>
-<span class="listing-date">Jan 11, 2024</span>
-</td>
-<td>
-<a href="./posts/Regression_3.html" class="title listing-title">Ch3. Simple Linear Regression 개념</a>
-</td>
-<td>
-<span class="listing-author">김보람 </span>
-</td>
+<tbody>
+<tr class="odd">
+<td>총 제곱합</td>
+<td>SST = <span class="math inline">\(\sum_{i=1}^n (y_i - \bar y)^2\)</span></td>
+<td></td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1670166000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH11 변수 선택" data-listing-filename-sort="CH11.ipynb">
-<td>
-<span class="listing-date">Dec 5, 2022</span>
-</td>
-<td>
-<a href="./posts/CH11.html" class="title listing-title">[ARA] CH11 변수 선택</a>
-</td>
-<td>
-<span class="listing-author">김보람 </span>
-</td>
+<tr class="even">
+<td>잔차제곱합</td>
+<td>SSE = <span class="math inline">\(\sum_{i=1}^n (y_i - \hat y_i)^2\)</span></td>
+<td>작아야 좋음</td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1669302000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="[ARA] CH13 가변수" data-listing-filename-sort="CH13.ipynb">
-<td>
-<span class="listing-date">Nov 25, 2022</span>
-</td>
-<td>
-<a href="./posts/CH13.html" class="title listing-title">[ARA] CH13 가변수</a>
-</td>
-<td>
-<span class="listing-author">김보람 </span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1668956400000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH10 회귀진단" data-listing-filename-sort="CH10.ipynb">
-<td>
-<span class="listing-date">Nov 21, 2022</span>
-</td>
-<td>
-<a href="./posts/CH10.html" class="title listing-title">[ARA] CH10 회귀진단</a>
-</td>
-<td>
-<span class="listing-author">김보람 </span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1668351600000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98" data-listing-title-sort="[ARA] CH0607 선형회귀분석" data-listing-filename-sort="CH0607.ipynb">
-<td>
-<span class="listing-date">Nov 14, 2022</span>
-</td>
-<td>
-<a href="./posts/CH0607.html" class="title listing-title">[ARA] CH0607 선형회귀분석</a>
-</td>
-<td>
-<span class="listing-author">김보람 </span>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1663772400000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="57" data-listing-title-sort="[ARA] CH0304 선형회귀분석" data-listing-filename-sort="CH0304.ipynb">
-<td>
-<span class="listing-date">Sep 22, 2022</span>
-</td>
-<td>
-<a href="./posts/CH0304.html" class="title listing-title">[ARA] CH0304 선형회귀분석</a>
-</td>
-<td>
-<span class="listing-author">김보람 </span>
-</td>
+<tr class="odd">
+<td>회귀제곱합</td>
+<td>SSR = <span class="math inline">\(\sum_{i=1}^n(\hat y_i - \bar y)^2\)</span></td>
+<td>커야 좋음</td>
 </tr>
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/3ba0523d-6d2e-4228-b76e-e13eb28c752d-1-536be5b3-28b0-41cf-b603-f4148d632a97.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
 </div>
-</div></main> <!-- /main -->
+</section>
+</section>
+<section id="coefficient-of-determination" class="level1">
+<h1>Coefficient of determination</h1>
+<p><code>-</code> 결정계수</p>
+<p><span class="math display">\[R^2 = \dfrac{SSR}{SST} = 1 - \dfrac{SSE}{SST}\]</span></p>
+<ul>
+<li><p>회귀 직선의 기여율 (총변동 가운데 회귀직선으로 설명되는 변동의 비율)</p></li>
+<li><p><span class="math inline">\(0 \leq R^2 \leq 1\)</span></p></li>
+<li><p>1에 가까울 수록 회귀에 의한 설명이 잘 됨을 뜻한</p></li>
+<li><p>단순회귀인 경우, <span class="math inline">\(R^2 = r^2\)</span></p></li>
+<li><p>비교할 때만 사용하는 상대적인 것..</p></li>
+</ul>
+</section>
+<section id="상관분석" class="level1">
+<h1>상관분석</h1>
+<ul>
+<li><p><span class="math inline">\(X, Y\)</span> : random variable</p></li>
+<li><p>모상관계수 <span class="math inline">\(\rho_{XY} = \dfrac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}:= \dfrac{\sigma_{XY}}{\sigma_X \sigma_Y}\)</span></p></li>
+<li><p>표본상관계수 <span class="math inline">\(\hat \rho_{XY} = r_{xy} = \dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}\)</span></p></li>
+<li><p><span class="math inline">\(-1 \leq \rho \leq 1, -1 \leq r_{xy} \leq 1\)</span></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/47e3b7df-5e53-441f-a030-44aa480ce8aa-1-47bc4856-c9d9-4f44-b0c7-5b01c2d3f256.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/83265031-c4fa-4623-aefc-c9b380659e92-1-87af4ace-d4ad-497f-b422-dcbc313b439e.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="분산분석" class="level1">
+<h1>분산분석</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_3_files/figure-html/1298ea4a-44fb-463b-8cf1-178dcb5a6701-1-76056e48-0214-419d-bf09-046c4604f465.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
