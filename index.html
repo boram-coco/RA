@@ -131,7 +131,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -168,17 +168,30 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Regression Analysis</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
+    <div class="quarto-title column-page-right">
       <h1 class="title">Regression Analysis</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta column-page-right">
 
       
     
@@ -188,10 +201,18 @@ window.Quarto = {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content">
 
 
 
@@ -221,7 +242,18 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1704898800000" data-listing-file-modified-sort="1704961783562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="582" data-listing-title-sort="Ch3. Simple Linear Regression 개념" data-listing-filename-sort="Regression_3.ipynb">
+<tr data-index="0" data-listing-date-sort="1704985200000" data-listing-file-modified-sort="1705044066164" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="510" data-listing-title-sort="Ch5. SLR: other topics" data-listing-filename-sort="Regression_5.ipynb">
+<td>
+<span class="listing-date">Jan 12, 2024</span>
+</td>
+<td>
+<a href="./posts/Regression_5.html" class="title listing-title">Ch5. SLR: other topics</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1704898800000" data-listing-file-modified-sort="1704961783562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="582" data-listing-title-sort="Ch3. Simple Linear Regression 개념" data-listing-filename-sort="Regression_3.ipynb">
 <td>
 <span class="listing-date">Jan 11, 2024</span>
 </td>
@@ -232,7 +264,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1670166000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH11 변수 선택" data-listing-filename-sort="CH11.ipynb">
+<tr data-index="2" data-listing-date-sort="1670166000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH11 변수 선택" data-listing-filename-sort="CH11.ipynb">
 <td>
 <span class="listing-date">Dec 5, 2022</span>
 </td>
@@ -243,7 +275,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1669302000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="[ARA] CH13 가변수" data-listing-filename-sort="CH13.ipynb">
+<tr data-index="3" data-listing-date-sort="1669302000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="[ARA] CH13 가변수" data-listing-filename-sort="CH13.ipynb">
 <td>
 <span class="listing-date">Nov 25, 2022</span>
 </td>
@@ -254,7 +286,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1668956400000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH10 회귀진단" data-listing-filename-sort="CH10.ipynb">
+<tr data-index="4" data-listing-date-sort="1668956400000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH10 회귀진단" data-listing-filename-sort="CH10.ipynb">
 <td>
 <span class="listing-date">Nov 21, 2022</span>
 </td>
@@ -265,7 +297,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1668351600000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98" data-listing-title-sort="[ARA] CH0607 선형회귀분석" data-listing-filename-sort="CH0607.ipynb">
+<tr data-index="5" data-listing-date-sort="1668351600000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98" data-listing-title-sort="[ARA] CH0607 선형회귀분석" data-listing-filename-sort="CH0607.ipynb">
 <td>
 <span class="listing-date">Nov 14, 2022</span>
 </td>
@@ -276,7 +308,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="5" data-listing-date-sort="1663772400000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="57" data-listing-title-sort="[ARA] CH0304 선형회귀분석" data-listing-filename-sort="CH0304.ipynb">
+<tr data-index="6" data-listing-date-sort="1663772400000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="57" data-listing-title-sort="[ARA] CH0304 선형회귀분석" data-listing-filename-sort="CH0304.ipynb">
 <td>
 <span class="listing-date">Sep 22, 2022</span>
 </td>

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="김보람">
+<meta name="dcterms.date" content="2024-01-12">
 
-<title>RA - Boram-coco</title>
+<title>RA - Ch5. SLR: other topics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,18 +69,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">RA</span>
     </a>
   </div>
@@ -88,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Boram-coco</span></a>
   </li>  
   <li class="nav-item compact">
@@ -112,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Boram-coco</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Ch5. SLR: other topics</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -122,7 +154,35 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Ch5. SLR: other topics</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>김보람 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 12, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -135,29 +195,159 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla content">
-  <img src="coco.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Boram-coco</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>Everyday with Coco</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://github.com/boram-coco" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
+
+
+
+<section id="적합결여검정" class="level1">
+<h1>적합결여검정</h1>
+<ul>
+<li>두 변수 x와 y 사이의 함수관계가 단순회귀모형</li>
+</ul>
+<p><span class="math display">\[y= \beta_0 + \beta_1x + \epsilon, \epsilon \sim N(0,\sigma^2)\]</span></p>
+<p>으로 표현되는 것이 적합한가의 검정방법</p>
+<p><img src="Regression_5_files/figure-html/2d9377d6-93ef-4a5d-b13f-3d90c9ab9c73-1-78ce9fe5-ea23-457d-b9d6-77e232b44264.png" class="img-fluid"></p>
+<p><code>-</code> 가설</p>
+<ul>
+<li><p><span class="math inline">\(H_0 : E(Y|X = x) = \beta_0 + \beta_1 x\)</span></p></li>
+<li><p><span class="math inline">\(H_1 : E(Y|X = x) \neq \beta_0 + \beta_1 x\)</span></p></li>
+</ul>
+<p><code>-</code> 제곱합분해</p>
+<ul>
+<li><p><span class="math inline">\(SSE = \sum_{i=1}^k \sum_{j=1}^{n_i} (y_{ij} - \hat y_i)^2\)</span></p></li>
+<li><p><span class="math inline">\(\bar y_i - \sum_{j=1}^{n_i} y_{ij} / n_i\)</span></p></li>
+</ul>
+<p><img src="Regression_5_files/figure-html/76c36294-4e69-4963-a735-aeafd6b2c140-1-7fadcf4a-086f-4e21-a082-9979f52c06c3.png" class="img-fluid"></p>
+<p><code>-</code> 검정</p>
+<ul>
+<li>검정통계량</li>
+</ul>
+<dl>
+<dt><span class="math display">\[F_0 = \dfrac{MSLF}{MSPE} \sim H_0  \ F(n-2 , n-k)\]</span></dt>
+<dd>
+<p><span class="math inline">\(F_0\)</span>값이 작음 –&gt; 모형적합이 잘 되었다.</p>
+</dd>
+</dl>
+<ul>
+<li><p>순오차평균제곱: <span class="math inline">\(MSPE = \dfrac{SSPE}{n-k}\)</span> : 고정되어 있음. 회귀직선과 상관 없음</p></li>
+<li><p>적합결여평균제곱: <span class="math inline">\(MSLF = \dfrac{SSLF}{k-2}\)</span></p></li>
+<li><p><span class="math inline">\(f_0 = \dfrac{MSLF}{MSPE} &gt; F_\alpha (n-2, n-k)\)</span>이면 귀무가설 기각</p></li>
+</ul>
+</section>
+<section id="두-회귀모형의-검정" class="level1">
+<h1>두 회귀모형의 검정</h1>
+<p><code>-</code> 완전 모형(full model)</p>
+<p><span class="math display">\[y_{ij} = \beta_{0i} + \beta_{1i} x_{ij} + \epsilon_{ij}\]</span></p>
+<p><span class="math display">\[i=1,2, j= j,2, \dots, n_i\]</span></p>
+<p><span class="math display">\[\epsilon_{ij} \sim N(0,\sigma^2)\]</span></p>
+<ul>
+<li><p>모집단1: <span class="math inline">\(E(y_{1j}|x_{1j}) = \beta_{01} + \beta_{11} x_{1j}\)</span></p></li>
+<li><p>모집단2: <span class="math inline">\(E(y_{2j}|x_{j2}) = \beta_{02} + \beta_{12} x_{2j}\)</span></p></li>
+</ul>
+<blockquote class="blockquote">
+<p>혹시… <span class="math inline">\(\beta_{01} = \beta_{02}\)</span> 아니야? <span class="math inline">\(\beta_{11} = \beta_{12}\)</span> 아니야? 하고 가설 세움</p>
+</blockquote>
+<p><code>-</code> 가설</p>
+<p><span class="math display">\[H_0 : \beta_{01} = \beta_{02}  \ \text{and} \ \beta_{11} = \beta_{12}\]</span></p>
+<p><span class="math display">\[H_1 : \beta_{01} \neq \beta_{02} \ \text{or} \ \beta_{11} \neq \beta_{12}\]</span></p>
+<p><code>-</code> 축소 모형(reduced model)</p>
+<p><span class="math display">\[y_{ij} = \beta_0 + \beta_1 x_{ij} + \epsilon_{ij},\]</span></p>
+<p><span class="math display">\[i=1,2, j=1,2, \dots , n_i\]</span></p>
+<p><span class="math display">\[\epsilon_{ij} \sim N(0, \sigma^2)\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_{01} = \beta_{02} = \beta_0, \beta_{11} = \beta_{12} = \beta_1\)</span></li>
+</ul>
+<p><code>(Step1)</code> 완전모형의 잔차제곱합 SSE(F)를 구한다.</p>
+<p><span class="math inline">\(SSE(F) = SSE_1 + SSE_2\)</span></p>
+<p><span class="math inline">\(SSE_i = \sum_{j=1}^{n_i} (y_{ij} - \hat y_{ij})^2 = \sum_{j=1}^{n_i} (y_{ij} - \hat \beta_{0i} - \hat \beta_{1i} x_{ij})^2, i=1,2\)</span></p>
+<p><code>(Step2)</code> 축소모형의 잔차제곱합 SSE(R)을 구한다.</p>
+<p><span class="math inline">\(SSE(R) = \sum_{i=1}^2 \sum_{j=1}^{n_i} (y_{ij} - \hat y_{ij})^2 = \sum_{i=1}^2 \sum_{j=1}^{n_i} (y_{ij} - \hat \beta_0 - \hat \beta_1 x_{ij})^2\)</span></p>
+<p><code>(Step3)</code> 검정통계량</p>
+<p><span class="math display">\[F_0 = \dfrac{SSE(R) - SSE(F)}{df_R - df_F} \div \dfrac{SSE(F)}{df_F}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(df_R = (n_1 - 1) + (n_2 - 1), df_F = (n_1 - 2) + (n_2 - 2)\)</span></p></li>
+<li><p><span class="math inline">\(F_0 \sim F(df_r - df_F, df_F) = F(2, n_1 + n_2 - 4)\)</span></p></li>
+</ul>
+<p><code>(Step4)</code> 유의수준 <span class="math inline">\(\alpha\)</span>에서 <span class="math inline">\(F_0 &gt; F_\alpha (2, n_1 + n_2 - 4)\)</span>이면 <span class="math inline">\(H_0\)</span>기각</p>
+</section>
+<section id="두-기울기의-비교" class="level1">
+<h1>두 기울기의 비교</h1>
+<p><code>-</code> 기울기 비교에 대한 가설</p>
+<p><span class="math display">\[H_0 : \beta_{11} = \beta_{12}\]</span></p>
+<p><span class="math display">\[H_1: \beta_{11} \neq \beta_{12}\]</span></p>
+<p><code>-</code> 검정통계량</p>
+<p><span class="math display">\[t_0 = \dfrac{\hat \beta_{11} - \hat \beta_{12}}{\sqrt{\widehat{Var}(\hat \beta_{11} - \hat \beta_{12})}} \sim H_0 \ t((n_1 - 2) + (n_2 -2))\]</span></p>
+<p><code>-</code> 두 표본이 독립이라고 가정하면</p>
+<p><span class="math display">\[Var(\hat \beta_{11} - \hat \beta_{12}) = Var(\hat \beta_{11}) + Var(\hat \beta_{12})\]</span></p>
+<p><span class="math display">\[=\dfrac{\sigma^2}{\sum(x_{1j} - \bar x_1)^2} + \dfrac{\sigma^2}{\sum(x_{2j}-\bar x_2)^2}=\dfrac{\sigma^2}{S_{xx}}+\dfrac{\sigma^2}{S_{xx^*}}\]</span></p>
+<p><span class="math display">\[\widehat{Var}(\hat \beta_{11} - \hat \beta_{12}) = MSE(F) \left[ \dfrac{1}{\sum (x_{1j} - \bar x_1)^2} + \dfrac{1}{\sum(x_{2j} - \bar x_2)^2} \right]\]</span></p>
+</section>
+<section id="weighted-regression" class="level1">
+<h1>Weighted Regression</h1>
+<p><img src="Regression_5_files/figure-html/696df98d-b948-4e62-a67e-12dda3ae5668-1-63f47ce4-6191-4e8f-b4a6-acbb959fea45.png" class="img-fluid"></p>
+<p><img src="Regression_5_files/figure-html/58fd4118-9dc8-4711-ba9b-71620c3450da-1-c4ea10b9-2681-49e8-b9d7-8e23e110f6aa.png" class="img-fluid"></p>
+</section>
+<section id="quardratic-form" class="level1">
+<h1>Quardratic form</h1>
+<p><code>-</code> y의 이차형식(quadratic form)</p>
+<p><span class="math display">\[y^T A y = \sum_{i=1}^n a_{ij} y_i y_j = \sum_{i=1}^n a_{ii} y_i^2 + 2 \sum_{i=1}^{n-1} \sum_{j=i+1}^n a_{ii} y_i y_j\]</span></p>
+<ul>
+<li><p><span class="math inline">\(y^T = (y_1, y_2, \dots, y_n) : n \times 1\)</span> vector</p></li>
+<li><p><span class="math inline">\(A = (a_{ij})\)</span>: 이차형식 <span class="math inline">\(y^T A y\)</span>의 계수, <span class="math inline">\(n \times n\)</span> symmetric matrix</p></li>
+</ul>
+<p><code>-</code> <span class="math inline">\(0_n\)</span> 이 아닌 모든 벡터 <span class="math inline">\(y\)</span>에 대하여</p>
+<ul>
+<li><p><span class="math inline">\(y^T A y &gt; 0 \rightarrow A\)</span>: 양정치(positive definite) 행렬</p></li>
+<li><p><span class="math inline">\(y^T A y \geq 0 \rightarrow A\)</span>: 양반정치(positive definite) 행렬</p></li>
+<li><p><span class="math inline">\(y^T A y  &lt; 0 \rightarrow A\)</span>: 음정치(positive definite) 행렬</p></li>
+<li><p><span class="math inline">\(y^T A y \leq 0 \rightarrow A\)</span>: 음반정치(positive definite) 행렬</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_5_files/figure-html/b6c01faa-f3b0-4355-b207-f753c756a139-1-fa363f3c-8241-4669-9587-72f783bb011d.png" class="img-fluid figure-img"></p>
+<figcaption>Quadratic form: SST</figcaption>
+</figure>
 </div>
+</section>
+<section id="multivariate-normal-distribution" class="level1">
+<h1>Multivariate normal distribution</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Regression_5_files/figure-html/0f96b8d9-ece5-4ecd-bd48-9ec08a4783b6-1-c40ce4f6-daa0-413b-9666-12c2993bff02.png" class="img-fluid figure-img"></p>
+<figcaption>Multivariate normal distribution</figcaption>
+</figure>
 </div>
- <!-- /main -->
+<p><img src="Regression_5_files/figure-html/a4c640b3-1643-4d58-852e-ad2e2de8ec66-1-be6c5aef-a6b6-4548-bae6-46e01f2ab580.png" class="img-fluid"></p>
+</section>
+<section id="비중심-chi2분포" class="level1">
+<h1>비중심 <span class="math inline">\(\chi^2\)</span>분포</h1>
+<p><img src="Regression_5_files/figure-html/c8d01f6a-77ba-4e9c-992d-6823a235394c-1-ed684681-93c5-4bde-8886-2bfcd1654dd6.png" class="img-fluid"></p>
+</section>
+<section id="distribution-of-quadratic-form" class="level1">
+<h1>distribution of quadratic form</h1>
+<ul>
+<li>A: 멱등행렬(idempotent matrix)</li>
+</ul>
+<p><span class="math display">\[AA=A\]</span></p>
+<p>&lt;정리&gt;</p>
+<p><code>1.29</code> 멱등행렬의 고유값은 또는 1이다</p>
+<p><code>1.30</code> 행렬 A가 rank(A) = k 인 멱등행렬일 때는</p>
+<p><span class="math display">\[P^T AP = E_k\]</span></p>
+<p>를 만족하는 직교행렬 P가 존재한다. 여기서 <span class="math inline">\(E_k\)</span>는 대각 원소 중 <span class="math inline">\(k\)</span>개가 1, 나머지는 0인 대각행렬을 의미</p>
+<p><code>1.31</code></p>
+<p><img src="Regression_5_files/figure-html/1b1dca37-2fff-4b31-b78c-6412d17d93c0-1-70fba0e0-aa57-4814-adee-74c2983da18e.png" class="img-fluid"></p>
+<p><img src="Regression_5_files/figure-html/b9811f4d-0fa7-4504-8be4-a68b9c03c607-1-76099d57-87bf-4529-9d10-0fdf24b65b9a.png" class="img-fluid"></p>
+<p><img src="Regression_5_files/figure-html/11b5bae9-c960-4eae-8a42-2e9d6e7961b8-1-7254b0f1-0816-488c-92bd-b8345a342d05.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>뒤에 더 있음.. (pdf)</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -178,6 +368,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
