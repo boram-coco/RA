@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://boram-coco.github.io/RA/index.html</loc>
-    <lastmod>2023-12-07T10:58:48.918Z</lastmod>
+    <lastmod>2024-01-12T07:30:15.649Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/RA/posts/CH0607.html</loc>
     <lastmod>2023-12-07T10:50:39.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/RA/posts/CH11.html</loc>
+    <lastmod>2023-12-07T10:50:39.264Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/RA/posts/CH10.html</loc>
@@ -21,11 +25,15 @@
     <lastmod>2023-12-07T10:50:39.256Z</lastmod>
   </url>
   <url>
-    <loc>https://boram-coco.github.io/RA/posts/CH11.html</loc>
-    <lastmod>2023-12-07T10:50:39.264Z</lastmod>
+    <loc>https://boram-coco.github.io/RA/posts/Regression_3.html</loc>
+    <lastmod>2024-01-11T08:29:43.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boram-coco.github.io/RA/posts/Regression_5.html</loc>
+    <lastmod>2024-01-12T07:21:06.164Z</lastmod>
   </url>
   <url>
     <loc>https://boram-coco.github.io/RA/about.html</loc>
-    <lastmod>2023-12-07T10:02:00.538Z</lastmod>
+    <lastmod>2023-12-08T04:24:52.783Z</lastmod>
   </url>
 </urlset>

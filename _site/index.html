@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.283">
+<meta name="generator" content="quarto-1.4.538">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RA</title>
+<title>RA - Regression Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,12 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -99,14 +101,41 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -120,18 +149,18 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Boram-coco</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -139,17 +168,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Regression Analysis</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">RA</h1>
+    <div class="quarto-title column-page-right">
+      <h1 class="title">Regression Analysis</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta column-page-right">
 
       
     
@@ -159,19 +201,38 @@ ul.task-list li input[type="checkbox"] {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content">
 
 
 
 
+
+<ul>
+<li><p>Professor Youngmi Lee, Department of Statistics, Jeonbuk National University</p></li>
+<li><p>2nd semester, 2022</p></li>
+</ul>
 
 
 
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -187,7 +248,29 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1670166000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="[ARA] CH11 변수 선택" data-listing-filename-sort="CH11.ipynb">
+<tr data-index="0" data-listing-date-sort="1704985200000" data-listing-file-modified-sort="1705044066164" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="510" data-listing-title-sort="Ch5. SLR: other topics" data-listing-filename-sort="Regression_5.ipynb">
+<td>
+<span class="listing-date">Jan 12, 2024</span>
+</td>
+<td>
+<a href="./posts/Regression_5.html" class="title listing-title">Ch5. SLR: other topics</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1704898800000" data-listing-file-modified-sort="1704961783562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="582" data-listing-title-sort="Ch3. Simple Linear Regression 개념" data-listing-filename-sort="Regression_3.ipynb">
+<td>
+<span class="listing-date">Jan 11, 2024</span>
+</td>
+<td>
+<a href="./posts/Regression_3.html" class="title listing-title">Ch3. Simple Linear Regression 개념</a>
+</td>
+<td>
+<span class="listing-author">김보람 </span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1670166000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH11 변수 선택" data-listing-filename-sort="CH11.ipynb">
 <td>
 <span class="listing-date">Dec 5, 2022</span>
 </td>
@@ -198,7 +281,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1669302000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="[ARA] CH13 가변수" data-listing-filename-sort="CH13.ipynb">
+<tr data-index="3" data-listing-date-sort="1669302000000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="[ARA] CH13 가변수" data-listing-filename-sort="CH13.ipynb">
 <td>
 <span class="listing-date">Nov 25, 2022</span>
 </td>
@@ -209,7 +292,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1668956400000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="[ARA] CH10 회귀진단" data-listing-filename-sort="CH10.ipynb">
+<tr data-index="4" data-listing-date-sort="1668956400000" data-listing-file-modified-sort="1701946239264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8" data-listing-title-sort="[ARA] CH10 회귀진단" data-listing-filename-sort="CH10.ipynb">
 <td>
 <span class="listing-date">Nov 21, 2022</span>
 </td>
@@ -220,7 +303,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1668351600000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="[ARA] CH0607 선형회귀분석" data-listing-filename-sort="CH0607.ipynb">
+<tr data-index="5" data-listing-date-sort="1668351600000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98" data-listing-title-sort="[ARA] CH0607 선형회귀분석" data-listing-filename-sort="CH0607.ipynb">
 <td>
 <span class="listing-date">Nov 14, 2022</span>
 </td>
@@ -231,7 +314,7 @@ Author
 <span class="listing-author">김보람 </span>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1663772400000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="[ARA] CH0304 선형회귀분석" data-listing-filename-sort="CH0304.ipynb">
+<tr data-index="6" data-listing-date-sort="1663772400000" data-listing-file-modified-sort="1701946239256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="57" data-listing-title-sort="[ARA] CH0304 선형회귀분석" data-listing-filename-sort="CH0304.ipynb">
 <td>
 <span class="listing-date">Sep 22, 2022</span>
 </td>
@@ -376,15 +459,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -392,6 +488,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const anchorLink = note.querySelector('a.anchorjs-link');
       if (anchorLink) {
         anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
       }
       return note.innerHTML;
     }
@@ -435,6 +534,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -506,6 +628,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
