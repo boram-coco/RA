@@ -211,6 +211,13 @@ window.Quarto = {
 <section id="section-2" class="level2">
 <h2 class="anchored" data-anchor-id="section-2">(2)</h2>
 <p><span class="math inline">\(E(\hat \beta_1)\)</span>과 <span class="math inline">\(Var(\hat \beta_1)\)</span>를 구하여라</p>
+<p><span class="math inline">\(\hat \beta_1 = \dfrac{S_{xy}}{S_{xx}}=\dfrac{\sum ((x-\bar x)(y-\bar y))}{\sum(x-\bar x)^2}= \dfrac{\sum((x-\bar x)y - (x-\bar x) \bar y)}{\sum(x-\bar x)^2} = \dfrac{\sum(x-\bar x)y - \sum (x-\bar x) \bar y }{\sum(x-\bar x)^2} = \dfrac{\sum (x- \bar x)y}{S_{xx}}\)</span></p>
+<p><span class="math inline">\(\because \sum(x-\bar x ) = 0\)</span></p>
+<p><span class="math inline">\(\sum a_i = \dfrac{\sum (x- \bar x)}{S_{xx}}\)</span></p>
+<p><span class="math inline">\(E(\hat \beta_1) = E(\sum a y) = \sum E(y) = \sum a (\hat \beta_0 + \hat \beta_1 x) = \sum a (\bar y - \hat \beta_1 \bar x + \hat \beta_1 x) = \hat \beta_1\)</span></p>
+<p><span class="math inline">\(\because \sum a (\hat \beta_1(x - \bar x)) = \hat \beta_1 \dfrac{S_{xx}}{S_{xx}}=\hat \beta_1\)</span></p>
+<p><span class="math inline">\(\because \bar y \sum a = 0\)</span> (분자가 0)</p>
+<p><span class="math inline">\(Var(\hat \beta_1) = Var(\sum ay) = (\sum a)^2  Var(y) = (\sum a)^2 \sigma^2 = (\dfrac{\sum (x- \bar x)}{S_{xx}})^2 \sigma^2 = \dfrac{1}{S_{xx}} \sigma^2\)</span></p>
 </section>
 </section>
 <section id="section-3" class="level1">

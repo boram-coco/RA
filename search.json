@@ -67,7 +67,7 @@
     "href": "posts/RA.html",
     "title": "RA",
     "section": "",
-    "text": "설명변수가 한 개인 단순선형회귀모형은 다음과 같이 정의한다.\n\n\n\\(\\beta_0, \\beta_1\\)에 대한 최소제곱추정량 LSE \\(\\hat \\beta_0, \\hat \\beta_1\\) 을 구하여라\n\n\n\n\\(E(\\hat \\beta_1)\\)과 \\(Var(\\hat \\beta_1)\\)를 구하여라"
+    "text": "설명변수가 한 개인 단순선형회귀모형은 다음과 같이 정의한다.\n\n\n\\(\\beta_0, \\beta_1\\)에 대한 최소제곱추정량 LSE \\(\\hat \\beta_0, \\hat \\beta_1\\) 을 구하여라\n\n\n\n\\(E(\\hat \\beta_1)\\)과 \\(Var(\\hat \\beta_1)\\)를 구하여라\n\\(\\hat \\beta_1 = \\dfrac{S_{xy}}{S_{xx}}=\\dfrac{\\sum ((x-\\bar x)(y-\\bar y))}{\\sum(x-\\bar x)^2}= \\dfrac{\\sum((x-\\bar x)y - (x-\\bar x) \\bar y)}{\\sum(x-\\bar x)^2} = \\dfrac{\\sum(x-\\bar x)y - \\sum (x-\\bar x) \\bar y }{\\sum(x-\\bar x)^2} = \\dfrac{\\sum (x- \\bar x)y}{S_{xx}}\\)\n\\(\\because \\sum(x-\\bar x ) = 0\\)\n\\(\\sum a_i = \\dfrac{\\sum (x- \\bar x)}{S_{xx}}\\)\n\\(E(\\hat \\beta_1) = E(\\sum a y) = \\sum E(y) = \\sum a (\\hat \\beta_0 + \\hat \\beta_1 x) = \\sum a (\\bar y - \\hat \\beta_1 \\bar x + \\hat \\beta_1 x) = \\hat \\beta_1\\)\n\\(\\because \\sum a (\\hat \\beta_1(x - \\bar x)) = \\hat \\beta_1 \\dfrac{S_{xx}}{S_{xx}}=\\hat \\beta_1\\)\n\\(\\because \\bar y \\sum a = 0\\) (분자가 0)\n\\(Var(\\hat \\beta_1) = Var(\\sum ay) = (\\sum a)^2  Var(y) = (\\sum a)^2 \\sigma^2 = (\\dfrac{\\sum (x- \\bar x)}{S_{xx}})^2 \\sigma^2 = \\dfrac{1}{S_{xx}} \\sigma^2\\)"
   },
   {
     "objectID": "posts/RA.html#section-1",
@@ -81,7 +81,7 @@
     "href": "posts/RA.html#section-2",
     "title": "RA",
     "section": "",
-    "text": "\\(E(\\hat \\beta_1)\\)과 \\(Var(\\hat \\beta_1)\\)를 구하여라"
+    "text": "\\(E(\\hat \\beta_1)\\)과 \\(Var(\\hat \\beta_1)\\)를 구하여라\n\\(\\hat \\beta_1 = \\dfrac{S_{xy}}{S_{xx}}=\\dfrac{\\sum ((x-\\bar x)(y-\\bar y))}{\\sum(x-\\bar x)^2}= \\dfrac{\\sum((x-\\bar x)y - (x-\\bar x) \\bar y)}{\\sum(x-\\bar x)^2} = \\dfrac{\\sum(x-\\bar x)y - \\sum (x-\\bar x) \\bar y }{\\sum(x-\\bar x)^2} = \\dfrac{\\sum (x- \\bar x)y}{S_{xx}}\\)\n\\(\\because \\sum(x-\\bar x ) = 0\\)\n\\(\\sum a_i = \\dfrac{\\sum (x- \\bar x)}{S_{xx}}\\)\n\\(E(\\hat \\beta_1) = E(\\sum a y) = \\sum E(y) = \\sum a (\\hat \\beta_0 + \\hat \\beta_1 x) = \\sum a (\\bar y - \\hat \\beta_1 \\bar x + \\hat \\beta_1 x) = \\hat \\beta_1\\)\n\\(\\because \\sum a (\\hat \\beta_1(x - \\bar x)) = \\hat \\beta_1 \\dfrac{S_{xx}}{S_{xx}}=\\hat \\beta_1\\)\n\\(\\because \\bar y \\sum a = 0\\) (분자가 0)\n\\(Var(\\hat \\beta_1) = Var(\\sum ay) = (\\sum a)^2  Var(y) = (\\sum a)^2 \\sigma^2 = (\\dfrac{\\sum (x- \\bar x)}{S_{xx}})^2 \\sigma^2 = \\dfrac{1}{S_{xx}} \\sigma^2\\)"
   },
   {
     "objectID": "posts/RA.html#section-4",
