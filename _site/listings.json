@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/회귀진단.html",
       "/posts/RA.html",
       "/posts/Regression_5.html",
       "/posts/Regression_3.html",
